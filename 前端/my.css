@@ -1,0 +1,16 @@
+td {
+	background-color: rgb(255, 255, 255);
+}
+
+td:hover {
+	/* hover完成的动作是鼠标放到的时候使用放到的颜色,离开的时候改回原色 */
+	/* 使用颜色给用户提示会增加不必要的判断逻辑,最好该用大小提示用户 */
+	/* background-color: aqua; */
+
+	/* 动画是一个好东西! */
+	transition: 0.25s;
+	transform: scale(1.4545, 1.34);
+	transform-origin: center;
+
+	cursor: pointer;
+}
