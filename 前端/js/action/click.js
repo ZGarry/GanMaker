@@ -4,7 +4,7 @@ import {td_default_color,color_table} from "../conf/color.js"
 import {data} from "../data/data.js"
 // 导入刷新函数
 import {fresh} from "./fresh.js"
-import {save} from "./ls.js"
+import {save,_export,_import} from "./ls.js"
 
 $(document).on("dblclick", "[scope=col]", function() {
 	var i = $(this).index() - 1;
@@ -57,6 +57,36 @@ $(document).on("click", "#removecol", function() {
 
 $(document).on("click", "#save", function() {
 	save()
+});
+$(document).on("click", "#export", function() {
+	_export()
+});
+$(document).on("click", "#import", function() {
+	_import()
+});
+
+$(document).on("click", "#sizebig", function() {
+	scale(1.1);
+});
+
+$(document).on("click", "#sizesmall", function() {
+	scale(0.9);
+});
+
+$(document).on("click", "#recover", function() {
+	data.width="400px";
+	fresh()
+});
+
+function scale(c){
+	data.width=data.width.split("px")[0]*c+"px"
+	// console.log(data);
+	fresh()
+}
+
+$(document).on("click", "#clear", function() {
+	localStorage.clear();
+	location.reload();
 });
 
 export var unuse=null;

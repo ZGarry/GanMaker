@@ -3,8 +3,11 @@ import {td_default_color,color_table} from "../conf/color.js"
 // 导入数据配置
 import {data} from "../data/data.js"
 export function fresh() {
+	//根据宽度数据刷新视图
+	$("#content").css("width",data.width);
+	
 	$("#table").empty();
-
+	
 	$("#table").append(`
 	<thead><tr><th scope="col">#</th></tr></thead>
 	<tbody></tbody>

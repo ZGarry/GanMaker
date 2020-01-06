@@ -14,3 +14,17 @@ td:hover {
 
 	cursor: pointer;
 }
+
+button:hover {
+	transition: 0.25s;
+	transform: scale(1.4545, 1.34);
+	transform-origin: center;
+}
+#content{
+	margin: 0 auto;
+	width: 400px;
+}
+#func{
+	float: left;
+	width: 300px;
+}

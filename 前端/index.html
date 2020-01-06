@@ -10,17 +10,40 @@
 		 crossorigin="anonymous">
 		<!-- mycss -->
 		<link rel="stylesheet" type="text/css" href="my.css" />
-		<title>Hello, world!</title>
+		<title>ganMaker</title>
 	</head>
 	<body>
-		<table class="table table-bordered" id="table"></table>
-		<button type="button" id="addrow" class="btn btn-primary">addrow</button>
-		<button type="button" id="removerow" class="btn btn-danger">removerow</button>
-		<br><br>
-		<button type="button" id="addcol" class="btn btn-primary">addcol</button>
-		<button type="button" id="removecol" class="btn btn-danger">removecol</button>
-		<br><br>
-		<button type="button" id="save" class="btn btn-success btn-lg">save</button>
+
+		<div id="content">
+			<table class="table table-bordered" id="table"></table>
+		</div>
+		<div id="func">
+			<p class="lead">>存储&读取</p>
+			<button type="button" id="save" class="btn btn-primary btn-lg">save</button>
+			<button type="button" id="export" class="btn btn-success btn-lg">export</button>
+			<button type="button" id="import" class="btn btn-success btn-lg">import</button>
+			<br><br>
+			
+			<p class="lead">>行操作</p>
+			<button type="button" id="addrow" class="btn btn-primary">addrow</button>
+			<button type="button" id="removerow" class="btn btn-danger">removerow</button>
+			<br><br>
+			
+			<p class="lead">>列操作</p>
+			<button type="button" id="addcol" class="btn btn-primary">addcol</button>
+			<button type="button" id="removecol" class="btn btn-danger">removecol</button>
+			<br><br>
+			
+			<p class="lead">>修改宽度</p>
+			<button type="button" id="sizebig" class="btn btn-primary">sizebig</button>
+			<button type="button" id="sizesmall" class="btn btn-danger">sizesmall</button>
+			<button type="button" id="recover" class="btn btn-danger">recover</button>
+			<br><br>
+			
+			<p class="lead">>清空</p>
+			<button type="button" id="clear" class="btn btn-primary">clear</button>
+			<br><br>
+		</div>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -29,7 +52,7 @@
 		 crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		 crossorigin="anonymous"></script>
-		 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 		<!-- 个人js -->
 		<script type="module" src="js/main.js"></script>
 	</body>
