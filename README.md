@@ -1,5 +1,9 @@
 # GanMaker
 
+点击访问[在线版](https://zgarry.github.io/GanMaker/%E5%89%8D%E7%AB%AF/)
+
+如果上一个网页无法访问，点此访问[备用版](http://49.233.132.28/)
+
 GanMaker是一个基于网页版的**简易**甘特图制造器。
 
 [甘特图](https://baike.baidu.com/item/%E7%94%98%E7%89%B9%E5%9B%BE/113232)是一种强有力的日程安排手段。
