@@ -20,11 +20,47 @@ button:hover {
 	transform: scale(1.4545, 1.34);
 	transform-origin: center;
 }
-#content{
+
+#content {
 	margin: 0 auto;
 	width: 400px;
 }
-#func{
+
+#func {
 	float: left;
 	width: 300px;
 }
+
+
+#hook{
+	height: 100%;
+	width: 20px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	background-color: #ccc;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+#hook:hover{
+	background-color: yellow;
+}
+
+#side {
+	border-left: solid 3px rgb(149, 165, 166);
+	padding-left: 30px;
+	/* color: white; */
+	height: 100%;
+	/* width: 200px; */
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	/* 米白色 */
+	background-color: rgb(255,250,232);
+	
+	padding-top: 60px;
+	visibility: hidden;
+}
+
