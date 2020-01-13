@@ -1,10 +1,21 @@
 // 导入颜色配置
-import {td_default_color,color_table} from "../conf/color.js"
+import {
+	td_default_color,
+	color_table
+} from "../conf/color.js"
 // 导入数据配置
-import {data} from "../data/data.js"
+import {
+	data
+} from "../data/data.js"
 // 导入刷新函数
-import {fresh} from "./fresh.js"
-import {save,_export,_import} from "./ls.js"
+import {
+	fresh
+} from "./fresh.js"
+import {
+	save,
+	_export,
+	_import
+} from "./ls.js"
 
 $(document).on("dblclick", "[scope=col]", function() {
 	var i = $(this).index() - 1;
@@ -74,12 +85,12 @@ $(document).on("click", "#sizesmall", function() {
 });
 
 $(document).on("click", "#recover", function() {
-	data.width="400px";
+	data.width = "400px";
 	fresh()
 });
 
-function scale(c){
-	data.width=data.width.split("px")[0]*c+"px"
+function scale(c) {
+	data.width = data.width.split("px")[0] * c + "px"
 	// console.log(data);
 	fresh()
 }
@@ -89,4 +100,4 @@ $(document).on("click", "#clear", function() {
 	location.reload();
 });
 
-export var unuse=null;
+export var unuse = null;

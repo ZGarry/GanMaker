@@ -1,13 +1,21 @@
 // 导入颜色配置
-import {td_default_color,color_table} from "../conf/color.js"
+import {
+	td_default_color,
+	color_table
+} from "../conf/color.js"
 // 导入数据配置
-import {data} from "../data/data.js"
+import {
+	data
+} from "../data/data.js"
+import {
+	add_drag
+} from "./drag.js"
 export function fresh() {
 	//根据宽度数据刷新视图
-	$("#content").css("width",data.width);
-	
+	$("#content").css("width", data.width);
+
 	$("#table").empty();
-	
+
 	$("#table").append(`
 	<thead><tr><th scope="col">#</th></tr></thead>
 	<tbody></tbody>
@@ -16,6 +24,7 @@ export function fresh() {
 	fresh_head()
 	fresh_body()
 	fresh_color()
+	add_drag("table")
 }
 
 function fresh_head() {
