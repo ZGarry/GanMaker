@@ -15,9 +15,23 @@
 	<body>
 		<div id="main">
 			<div id="content">
-				<table class="table table-bordered" id="table"></table>
+				<table class="table table-bordered" id="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col" v-for="col in cols">{{ col }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(row,i) in rows">
+							<th scope="row">{{row}}</th>
+							<td v-for="(col,j) in cols" @click="array[i][j]=1-array[i][j];array.push();" :style="{'background-color': (array[i][j]==1?colors[i]:'rgb(255, 255, 255)')}"></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
+
 		<div id="side">
 			<div id="func">
 				<p class="lead"> >>存储&读取</p>
@@ -46,6 +60,14 @@
 				<button type="button" id="clear" class="btn btn-primary">clear</button>
 				<br><br>
 
+				<p class="lead"> >>图片</p>
+				<button type="button" id="loadimg" class="btn btn-primary">保存图片</button>
+				<br><br>
+
+				<p class="lead"> >>云端</p>
+				<button type="button" id="upload" class="btn btn-primary">上传到云端</button>
+				<button type="button" id="download" class="btn btn-primary">从云端下载</button>
+				<br><br>
 			</div>
 		</div>
 		<div id="hook">
@@ -60,6 +82,17 @@
 		 crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 		<!-- 个人js -->
-		<script type="module" src="js/main.js"></script>
+
+		<!-- 网络服务 -->
+		<script src="js/net/Bmob-2.2.2.min.js"></script>
+		<!-- 图片保存 -->
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+		<!-- vue -->
+		<script src="./js/net/vue.min.js"></script>
+		<script src="js/main.js"></script>
+		<script type="text/javascript">
+
+		</script>>
+
 	</body>
 </html>
