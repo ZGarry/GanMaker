@@ -1,98 +1,113 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-		 crossorigin="anonymous">
-		<!-- mycss -->
-		<link rel="stylesheet" type="text/css" href="my.css" />
-		<title>ganMaker</title>
-	</head>
-	<body>
-		<div id="main">
-			<div id="content">
-				<table class="table table-bordered" id="table">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col" v-for="col in cols">{{ col }}</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr v-for="(row,i) in rows">
-							<th scope="row">{{row}}</th>
-							<td v-for="(col,j) in cols" @click="array[i][j]=1-array[i][j];array.push();" :style="{'background-color': (array[i][j]==1?colors[i]:'rgb(255, 255, 255)')}"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- mycss -->
+	<link rel="stylesheet" type="text/css" href="my.css" />
+	<title>ganMaker</title>
+</head>
+
+<body>
+	<div id="main">
+		<div id="content">
+			<table class="table table-bordered" id="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col" v-for="col in cols">{{ col }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="edge-r">
+						<td scope="col"></td>
+						<td scope="col" v-for="col in cols"></td>
+					</tr>
+					<tr v-for="(row,i) in rows">
+						<th scope="row">{{row}}</th>
+						<td class="inner-td" v-for="(col,j) in cols" @click="array[i][j]=1-array[i][j];array.push();"
+							:style="{'background-color': (array[i][j]==1?colors[i]:'rgb(255, 255, 255)')}"></td>
+					</tr>
+					<tr class="edge-r">
+						<td scope="col"></td>
+						<td scope="col" v-for="col in cols"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
+	</div>
 
-		<div id="side">
-			<div id="func">
-				<p class="lead"> >>存储&读取</p>
-				<button type="button" id="save" class="btn btn-primary">save</button>
-				<button type="button" id="export" class="btn btn-success">export</button>
-				<button type="button" id="import" class="btn btn-success">import</button>
-				<br><br>
+	<div id="side">
+		<div id="func">
+			<p class="lead"> >>存储&读取</p>
+			<button type="button" id="save" class="btn btn-primary">save</button>
+			<button type="button" id="export" class="btn btn-success">export</button>
+			<button type="button" id="import" class="btn btn-success">import</button>
+			<br><br>
 
-				<p class="lead"> >>行操作</p>
-				<button type="button" id="addrow" class="btn btn-primary">addrow</button>
-				<button type="button" id="removerow" class="btn btn-danger">removerow</button>
-				<br><br>
+			<p class="lead"> >>行操作</p>
+			<button type="button" id="addrow" class="btn btn-primary">addrow</button>
+			<button type="button" id="removerow" class="btn btn-danger">removerow</button>
+			<br><br>
 
-				<p class="lead"> >>列操作</p>
-				<button type="button" id="addcol" class="btn btn-primary">addcol</button>
-				<button type="button" id="removecol" class="btn btn-danger">removecol</button>
-				<br><br>
+			<p class="lead"> >>列操作</p>
+			<button type="button" id="addcol" class="btn btn-primary">addcol</button>
+			<button type="button" id="removecol" class="btn btn-danger">removecol</button>
+			<br><br>
 
-				<p class="lead"> >>修改宽度</p>
-				<button type="button" id="sizebig" class="btn btn-primary">sizebig</button>
-				<button type="button" id="sizesmall" class="btn btn-danger">sizesmall</button>
-				<button type="button" id="recover" class="btn btn-danger">recover</button>
-				<br><br>
+			<p class="lead"> >>修改宽度</p>
+			<button type="button" id="sizebig" class="btn btn-primary">sizebig</button>
+			<button type="button" id="sizesmall" class="btn btn-danger">sizesmall</button>
+			<button type="button" id="recover" class="btn btn-danger">recover</button>
+			<br><br>
 
-				<p class="lead"> >>清空</p>
-				<button type="button" id="clear" class="btn btn-primary">clear</button>
-				<br><br>
+			<p class="lead"> >>清空</p>
+			<button type="button" id="clear" class="btn btn-primary">clear</button>
+			<br><br>
 
-				<p class="lead"> >>图片</p>
-				<button type="button" id="loadimg" class="btn btn-primary">保存图片</button>
-				<br><br>
+			<p class="lead"> >>图片</p>
+			<button type="button" id="loadimg" class="btn btn-primary">保存图片</button>
+			<br><br>
 
-				<p class="lead"> >>云端</p>
-				<button type="button" id="upload" class="btn btn-primary">上传到云端</button>
-				<button type="button" id="download" class="btn btn-primary">从云端下载</button>
-				<br><br>
-			</div>
+			<p class="lead"> >>云端</p>
+			<button type="button" id="upload" class="btn btn-primary">上传到云端</button>
+			<button type="button" id="download" class="btn btn-primary">从云端下载</button>
+			<br><br>
 		</div>
-		<div id="hook">
-		</div>
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-		 crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9+4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb"
-		 crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		 crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
-		<!-- 个人js -->
+	</div>
+	<div id="hook">
+	</div>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
+		integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9+4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+	<!-- 个人js -->
 
-		<!-- 网络服务 -->
-		<script src="js/net/Bmob-2.2.2.min.js"></script>
-		<!-- 图片保存 -->
-		<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-		<!-- vue -->
-		<script src="./js/net/vue.min.js"></script>
-		<script src="js/main.js"></script>
-		<script type="text/javascript">
+	<!-- 网络服务 -->
+	<script src="js/net/Bmob-2.2.2.min.js"></script>
+	<!-- 图片保存 -->
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+	<!-- vue -->
+	<script src="./js/net/vue.min.js"></script>
+	<script src="js/main.js"></script>
+	<script type="text/javascript">
 
-		</script>>
+	</script>>
 
-	</body>
+</body>
+
 </html>

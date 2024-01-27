@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .edge-r {
+            width: 100px;
+            height: 100px;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .tooltip::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-style: solid;
+            border-width: 6px;
+            border-color: transparent transparent #f1f1f1 transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            // 创建元素
+            const edgeR = document.createElement('div');
+            edgeR.classList.add('edge-r');
+            edgeR.style.left = `${mouseX}px`;
+            edgeR.style.top = `${mouseY}px`;
+
+            const tooltip = document.createElement('span');
+            tooltip.classList.add('tooltip');
+
+            const plusBtn = document.createElement('button');
+            plusBtn.classList.add('plus');
+            plusBtn.textContent = '+';
+
+            const minusBtn = document.createElement('button');
+            minusBtn.classList.add('minus');
+            minusBtn.textContent = '-';
+
+            // 将元素添加到文档中
+            tooltip.appendChild(plusBtn);
+            tooltip.appendChild(minusBtn);
+            edgeR.appendChild(tooltip);
+            document.body.appendChild(edgeR);
+
+            // 添加事件处理程序
+            edgeR.addEventListener('mouseover', () => {
+                tooltip.style.display = 'block';
+            });
+
+            edgeR.addEventListener('mouseout', () => {
+                tooltip.style.display = 'none';
+            });
+
+            plusBtn.addEventListener('click', () => {
+                // 处理+按钮点击事件
+                // 在这里执行你想要的操作
+            });
+
+            minusBtn.addEventListener('click', () => {
+                // 处理-按钮点击事件
+                // 在这里执行你想要的操作
+            });
+        });
+    </script>
+</body>
+
+</html>

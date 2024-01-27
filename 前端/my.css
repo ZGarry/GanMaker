@@ -2,7 +2,7 @@ td {
 	background-color: rgb(255, 255, 255);
 }
 
-td:hover {
+.inner-td:hover {
 	/* hover完成的动作是鼠标放到的时候使用放到的颜色,离开的时候改回原色 */
 	/* 使用颜色给用户提示会增加不必要的判断逻辑,最好该用大小提示用户 */
 	/* background-color: aqua; */
@@ -64,3 +64,32 @@ button:hover {
 	visibility: hidden;
 }
 
+.edge-r {
+	height: 10px; /* 设置你想要的宽度 */
+	padding: 10px;
+}
+  
+.edge-r td {
+padding: 0px;
+}
+
+
+
+.edge-r:hover {
+	/* hover完成的动作是鼠标放到的时候使用放到的颜色,离开的时候改回原色 */
+	/* 使用颜色给用户提示会增加不必要的判断逻辑,最好该用大小提示用户 */
+	/* background-color: aqua; */
+
+	/* 动画是一个好东西! */
+	transition: 0.25s;
+	transform: scaleY(1.34);
+  	transform-origin: center;
+
+	  height:13.4px;
+	cursor: pointer;
+}
+
+/* 移除边缘部分边界 */
+.edge-r td, .edge-r th {
+    border: 0px solid #dee2e6;
+}
